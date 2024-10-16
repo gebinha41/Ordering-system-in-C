@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -g
+
+all: apresentacao
+
+apresentacao: apresentacao.o
+    $(CC) $(CFLAGS) -o apresentacao apresentacao.o
+
+apresentacao.o: apresentacao.c
+    $(CC) $(CFLAGS) -c apresentacao.c
+
+clean:
+    rm -f *.o apresentacao
