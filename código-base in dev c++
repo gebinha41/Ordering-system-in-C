@@ -3,17 +3,17 @@
 #include <string.h>
 #include "CalcTempoExecucao.h"
 
-// Estrutura para representar a criação de arquivos
+// Estrutura para representar a criaÃ§Ã£o de arquivos
 struct ClasseCriacaoArquivoExemplo {
-    // Você pode adicionar atributos aqui, se necessário
+    // VocÃª pode adicionar atributos aqui, se necessÃ¡rio
 };
 
-// Função para inicializar a estrutura (se necessário)
+// FunÃ§Ã£o para inicializar a estrutura (se necessÃ¡rio)
 void inicializarClasse(struct ClasseCriacaoArquivoExemplo *classe) {
-    // Inicialização de atributos, se houver
+    // InicializaÃ§Ã£o de atributos, se houver
 }
 
-// Função para gravar texto em um arquivo
+// FunÃ§Ã£o para gravar texto em um arquivo
 void gravarTexto(const char *nomeArquivo, const char *texto) {
     FILE *file = fopen(nomeArquivo, "a"); // Abre o arquivo em modo append
     if (file == NULL) {
@@ -24,18 +24,18 @@ void gravarTexto(const char *nomeArquivo, const char *texto) {
     fclose(file);
 }
 
-// Função para criar um arquivo de exemplo
+// FunÃ§Ã£o para criar um arquivo de exemplo
 void criarArquivo(const char *nomeArquivo) {
     FILE *file = fopen(nomeArquivo, "w"); // Abre o arquivo para escrita
     if (file == NULL) {
         perror("Erro ao criar o arquivo");
         return;
     }
-    fprintf(file, "Este é um exemplo de arquivo criado.\n");
+    fprintf(file, "Este Ã© um exemplo de arquivo criado.\n");
     fclose(file);
 }
 
-// Função para gerar um arquivo com coordenadas desordenadas
+// FunÃ§Ã£o para gerar um arquivo com coordenadas desordenadas
 void gerarArquivoCoordenadaDesordenada(double *coordenadasGeradas, int numCoordenadas, const char *nomeArquivo) {
     for (int i = 0; i < numCoordenadas; i += 2) {
         char coordenadas[100]; // Buffer para coordenadas
@@ -44,13 +44,13 @@ void gerarArquivoCoordenadaDesordenada(double *coordenadasGeradas, int numCoorde
     }
 }
 
-// Função para gerar um arquivo com coordenadas ordenadas
+// FunÃ§Ã£o para gerar um arquivo com coordenadas ordenadas
 void gerarArquivoOrdenado(double *arrQuick, int tamanho, const char *nomeArquivo) {
     char coordenas[200]; // Buffer para coordenadas
     int contador = 0;
 
     for (int i = 0; i < tamanho; i++) {
-        char buffer[20]; // Buffer temporário para uma coordenada
+        char buffer[20]; // Buffer temporÃ¡rio para uma coordenada
         snprintf(buffer, sizeof(buffer), "%.6f", arrQuick[i]);
 
         if (contador == 0) {
@@ -60,7 +60,7 @@ void gerarArquivoOrdenado(double *arrQuick, int tamanho, const char *nomeArquivo
         strcat(coordenas, buffer); // Adiciona a coordenada ao buffer
 
         if (contador < 9) {
-            strcat(coordenas, ", "); // Adiciona vírgula se não for o último item da linha
+            strcat(coordenas, ", "); // Adiciona vÃ­rgula se nÃ£o for o Ãºltimo item da linha
             contador++;
         } else {
             gravarTexto(nomeArquivo, coordenas); // Grava as coordenadas no arquivo
@@ -74,16 +74,16 @@ void gerarArquivoOrdenado(double *arrQuick, int tamanho, const char *nomeArquivo
     }
 }
 
-// Função exemplo que simula o tempo de execução de um algoritmo
+// FunÃ§Ã£o exemplo que simula o tempo de execuÃ§Ã£o de um algoritmo
 long meuAlgoritmo(void) {
-    // Implementação do algoritmo
+    // ImplementaÃ§Ã£o do algoritmo
     return 42; // Exemplo de retorno
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
     struct ClasseCriacaoArquivoExemplo exemplo;
-    inicializarClasse(&exemplo); // Inicializa a estrutura, se necessário
+    inicializarClasse(&exemplo); // Inicializa a estrutura, se necessÃ¡rio
 
     // Criar um arquivo de exemplo
     criarArquivo("exemplo.txt");
@@ -100,12 +100,12 @@ int main() {
 
     gerarArquivoOrdenado(arrQuick, tamanho, "coordenadas_ordenadas.txt");
 
-    // Cálculo do tempo de execução
+    // CÃ¡lculo do tempo de execuÃ§Ã£o
     CalcTempoExecucao calc;
     calc.calcularTempoAlgoritmo = meuAlgoritmo;
 
     long tempo = calc.calcularTempoAlgoritmo();
-    printf("Tempo de execução: %ld\n", tempo);
+    printf("Tempo de execuÃ§Ã£o: %ld\n", tempo);
 
     return 0;
 }
@@ -123,10 +123,10 @@ typedef struct {
     double latitude;
     double longitude;
     int quantidade;
-    double *coordenadas; // Alocaremos um vetor dinâmico para armazenar as coordenadas
+    double *coordenadas; // Alocaremos um vetor dinÃ¢mico para armazenar as coordenadas
 } GeradorCoordenada;
 
-// Função para criar um gerador de coordenadas
+// FunÃ§Ã£o para criar um gerador de coordenadas
 GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     GeradorCoordenada *gerador = (GeradorCoordenada*)malloc(sizeof(GeradorCoordenada));
     gerador->quantidade = qtd;
@@ -134,19 +134,19 @@ GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     return gerador;
 }
 
-// Função para liberar a memória alocada para o gerador de coordenadas
+// FunÃ§Ã£o para liberar a memÃ³ria alocada para o gerador de coordenadas
 void liberarGeradorCoordenada(GeradorCoordenada *gerador) {
     free(gerador->coordenadas);
     free(gerador);
 }
 
-// Função para gerar uma coordenada aleatória
+// FunÃ§Ã£o para gerar uma coordenada aleatÃ³ria
 double gerarCoordenadaAleatoria(int n) {
     double coordenada = ((double)rand() / RAND_MAX) * (2 * n) - n; // Gera coordenada entre -n e n
     return round(coordenada * 1000000.0) / 1000000.0; // Arredonda para 6 casas decimais
 }
 
-// Função para gerar coordenadas
+// FunÃ§Ã£o para gerar coordenadas
 void gerarCoordenadas(GeradorCoordenada *gerador) {
     for (int i = 0; i < gerador->quantidade; i++) {
         gerador->latitude = gerarCoordenadaAleatoria(COORD_Y);
@@ -156,12 +156,12 @@ void gerarCoordenadas(GeradorCoordenada *gerador) {
     }
 }
 
-// Função para formatar coordenadas como string
+// FunÃ§Ã£o para formatar coordenadas como string
 void formataCoordenadas(double latitude, double longitude, char *buffer) {
     sprintf(buffer, "%.6f, %.6f", latitude, longitude);
 }
 
-// Função para exibir todas as coordenadas
+// FunÃ§Ã£o para exibir todas as coordenadas
 void exibirCoordenadas(GeradorCoordenada *gerador) {
     char buffer[50];
     for (int i = 0; i < gerador->quantidade; i++) {
@@ -170,7 +170,7 @@ void exibirCoordenadas(GeradorCoordenada *gerador) {
     }
 }
 
-// Função para gravar texto em um arquivo
+// FunÃ§Ã£o para gravar texto em um arquivo
 void gravarTexto(const char *nomeArquivo, const char *texto) {
     FILE *file = fopen(nomeArquivo, "a"); // Abre o arquivo em modo append
     if (file == NULL) {
@@ -181,11 +181,11 @@ void gravarTexto(const char *nomeArquivo, const char *texto) {
     fclose(file);
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
-    srand(time(NULL)); // Semente para números aleatórios
+    srand(time(NULL)); // Semente para nÃºmeros aleatÃ³rios
 
-    int quantidade = 5; // Número de coordenadas a serem geradas
+    int quantidade = 5; // NÃºmero de coordenadas a serem geradas
     GeradorCoordenada *gerador = criarGeradorCoordenada(quantidade);
 
     gerarCoordenadas(gerador);
@@ -198,7 +198,7 @@ int main() {
         gravarTexto("coordenadas.txt", buffer);
     }
 
-    liberarGeradorCoordenada(gerador); // Libera a memória
+    liberarGeradorCoordenada(gerador); // Libera a memÃ³ria
     return 0;
 }
 
@@ -218,7 +218,7 @@ typedef struct {
     double *coordenadas;
 } GeradorCoordenada;
 
-// Funções para o Gerador de Coordenadas (já descritas anteriormente)
+// FunÃ§Ãµes para o Gerador de Coordenadas (jÃ¡ descritas anteriormente)
 GeradorCoordenada* criarGeradorCoordenada(int qtd);
 void liberarGeradorCoordenada(GeradorCoordenada *gerador);
 double gerarCoordenadaAleatoria(int n);
@@ -226,14 +226,14 @@ void gerarCoordenadas(GeradorCoordenada *gerador);
 void exibirCoordenadas(GeradorCoordenada *gerador);
 void gravarTexto(const char *nomeArquivo, const char *texto);
 
-// Funções para os algoritmos de ordenação
+// FunÃ§Ãµes para os algoritmos de ordenaÃ§Ã£o
 void quickSort(double *arr, int low, int high);
 void mergeSort(double *arr, int l, int r);
 void heapSort(double *arr, int n);
 void heapify(double *arr, int n, int i);
 long calcularTempoExecucao(void (*sortFunc)(double*, int, int), double *arr, int param1, int param2);
 
-// Função para criar diretórios
+// FunÃ§Ã£o para criar diretÃ³rios
 void criarDiretorio(const char *path) {
     #ifdef _WIN32
         _mkdir(path);
@@ -242,7 +242,7 @@ void criarDiretorio(const char *path) {
     #endif
 }
 
-// Função para gerar arquivos
+// FunÃ§Ã£o para gerar arquivos
 void gerarArquivoCoordenadaDesordenada(double *coordenadasGeradas, int numCoordenadas, const char *nomeArquivo) {
     FILE *file = fopen(nomeArquivo, "w");
     if (file == NULL) {
@@ -267,7 +267,7 @@ void gerarArquivoOrdenado(double *arr, int tamanho, const char *nomeArquivo) {
     fclose(file);
 }
 
-// Funções de ordenação
+// FunÃ§Ãµes de ordenaÃ§Ã£o
 void quickSort(double *arr, int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
@@ -361,21 +361,21 @@ void heapSort(double *arr, int n) {
     }
 }
 
-// Função para calcular tempo de execução
+// FunÃ§Ã£o para calcular tempo de execuÃ§Ã£o
 long calcularTempoExecucao(void (*sortFunc)(double*, int, int), double *arr, int param1, int param2) {
     clock_t start = clock();
     sortFunc(arr, param1, param2);
     return (long)(clock() - start) * 1000 / CLOCKS_PER_SEC;
 }
 
-// Funções do Gerador de Coordenadas (implementações aqui)
+// FunÃ§Ãµes do Gerador de Coordenadas (implementaÃ§Ãµes aqui)
 GeradorCoordenada* criarGeradorCoordenada(int qtd);
 void liberarGeradorCoordenada(GeradorCoordenada *gerador);
 double gerarCoordenadaAleatoria(int n);
 void gerarCoordenadas(GeradorCoordenada *gerador);
 void gravarTexto(const char *nomeArquivo, const char *texto);
 
-// Função para iniciar o processo de ordenação
+// FunÃ§Ã£o para iniciar o processo de ordenaÃ§Ã£o
 void iniciarProcessoOrdenacao(const char *inputNomeArquivo, int inputTamanhoArquivo) {
     char pathOrdenado[] = "C:\\Temp\\Coordenadas\\Ordenado\\";
     char pathDesordenado[] = "C:\\Temp\\Coordenadas\\Desordenado\\";
@@ -422,7 +422,7 @@ void iniciarProcessoOrdenacao(const char *inputNomeArquivo, int inputTamanhoArqu
     free(arrHeap);
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
     srand(time(NULL));
     
@@ -446,7 +446,7 @@ typedef struct {
     int tamanho;
 } HeapSort;
 
-// Função para criar um GeradorCoordenada
+// FunÃ§Ã£o para criar um GeradorCoordenada
 GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     GeradorCoordenada *gerador = malloc(sizeof(GeradorCoordenada));
     gerador->quantidade = qtd;
@@ -454,7 +454,7 @@ GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     return gerador;
 }
 
-// Função para gerar coordenadas aleatórias
+// FunÃ§Ã£o para gerar coordenadas aleatÃ³rias
 void gerarCoordenadas(GeradorCoordenada *gerador) {
     for (int i = 0; i < gerador->quantidade * 2; i += 2) {
         gerador->coordenadas[i] = ((double)rand() / RAND_MAX) * 180.0 - 90.0;  // Latitude
@@ -462,13 +462,13 @@ void gerarCoordenadas(GeradorCoordenada *gerador) {
     }
 }
 
-// Função para liberar memória do GeradorCoordenada
+// FunÃ§Ã£o para liberar memÃ³ria do GeradorCoordenada
 void liberarGeradorCoordenada(GeradorCoordenada *gerador) {
     free(gerador->coordenadas);
     free(gerador);
 }
 
-// Função para criar um objeto HeapSort
+// FunÃ§Ã£o para criar um objeto HeapSort
 HeapSort* criarHeapSort(double *arr, int tamanho) {
     HeapSort *heapSort = malloc(sizeof(HeapSort));
     heapSort->numeros = arr;
@@ -476,12 +476,12 @@ HeapSort* criarHeapSort(double *arr, int tamanho) {
     return heapSort;
 }
 
-// Função para liberar memória do HeapSort
+// FunÃ§Ã£o para liberar memÃ³ria do HeapSort
 void liberarHeapSort(HeapSort *heapSort) {
     free(heapSort);
 }
 
-// Função para realizar o HeapSort
+// FunÃ§Ã£o para realizar o HeapSort
 void heapSort(double *arr, int tamanho) {
     for (int i = tamanho / 2 - 1; i >= 0; i--) {
         heapify(arr, tamanho, i);
@@ -495,7 +495,7 @@ void heapSort(double *arr, int tamanho) {
     }
 }
 
-// Função auxiliar para heapificar o array
+// FunÃ§Ã£o auxiliar para heapificar o array
 void heapify(double *arr, int tamanho, int i) {
     int maior = i;
     int esquerda = 2 * i + 1;
@@ -516,14 +516,14 @@ void heapify(double *arr, int tamanho, int i) {
     }
 }
 
-// Função para calcular o tempo de execução do HeapSort
+// FunÃ§Ã£o para calcular o tempo de execuÃ§Ã£o do HeapSort
 long calcularTempoHeapSort(HeapSort *heapSort) {
     clock_t start = clock();
     heapSort(heapSort->numeros, heapSort->tamanho);
     return (long)(clock() - start) * 1000 / CLOCKS_PER_SEC; // Retorna o tempo em milissegundos
 }
 
-// Função para gravar coordenadas em um arquivo
+// FunÃ§Ã£o para gravar coordenadas em um arquivo
 void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho) {
     FILE *file = fopen(nomeArquivo, "w");
     if (file == NULL) {
@@ -536,7 +536,7 @@ void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho
     fclose(file);
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
     srand(time(NULL));
 
@@ -556,12 +556,12 @@ int main() {
 
     HeapSort *heapSort = criarHeapSort(arrParaOrdenar, quantidade);
     long tempoExec = calcularTempoHeapSort(heapSort);
-    printf("Tempo de execução do HeapSort: %ld ms\n", tempoExec);
+    printf("Tempo de execuÃ§Ã£o do HeapSort: %ld ms\n", tempoExec);
 
     // Gravar coordenadas ordenadas
     gravarCoordenadas(PATHORDENADO "coordenadas_ordenadas.txt", gerador->coordenadas, quantidade * 2);
 
-    // Liberar memória
+    // Liberar memÃ³ria
     liberarGeradorCoordenada(gerador);
     liberarHeapSort(heapSort);
     free(arrParaOrdenar);
@@ -588,7 +588,7 @@ typedef struct {
     int tamanho;
 } MergeSort;
 
-// Função para criar um GeradorCoordenada
+// FunÃ§Ã£o para criar um GeradorCoordenada
 GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     GeradorCoordenada *gerador = malloc(sizeof(GeradorCoordenada));
     gerador->quantidade = qtd;
@@ -596,7 +596,7 @@ GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     return gerador;
 }
 
-// Função para gerar coordenadas aleatórias
+// FunÃ§Ã£o para gerar coordenadas aleatÃ³rias
 void gerarCoordenadas(GeradorCoordenada *gerador) {
     for (int i = 0; i < gerador->quantidade * 2; i += 2) {
         gerador->coordenadas[i] = ((double)rand() / RAND_MAX) * 180.0 - 90.0;  // Latitude
@@ -604,13 +604,13 @@ void gerarCoordenadas(GeradorCoordenada *gerador) {
     }
 }
 
-// Função para liberar memória do GeradorCoordenada
+// FunÃ§Ã£o para liberar memÃ³ria do GeradorCoordenada
 void liberarGeradorCoordenada(GeradorCoordenada *gerador) {
     free(gerador->coordenadas);
     free(gerador);
 }
 
-// Função para criar um objeto MergeSort
+// FunÃ§Ã£o para criar um objeto MergeSort
 MergeSort* criarMergeSort(double *arr, int tamanho) {
     MergeSort *mergeSort = malloc(sizeof(MergeSort));
     mergeSort->v = arr;
@@ -619,13 +619,13 @@ MergeSort* criarMergeSort(double *arr, int tamanho) {
     return mergeSort;
 }
 
-// Função para liberar memória do MergeSort
+// FunÃ§Ã£o para liberar memÃ³ria do MergeSort
 void liberarMergeSort(MergeSort *mergeSort) {
     free(mergeSort->w);
     free(mergeSort);
 }
 
-// Função para realizar o MergeSort
+// FunÃ§Ã£o para realizar o MergeSort
 void mergeSort(MergeSort *mergeSort, int ini, int fim) {
     if (ini < fim) {
         int meio = (ini + fim) / 2;
@@ -635,7 +635,7 @@ void mergeSort(MergeSort *mergeSort, int ini, int fim) {
     }
 }
 
-// Função auxiliar para intercalar
+// FunÃ§Ã£o auxiliar para intercalar
 void intercalar(MergeSort *mergeSort, int ini, int meio, int fim) {
     for (int k = ini; k <= fim; k++) {
         mergeSort->w[k] = mergeSort->v[k];
@@ -652,14 +652,14 @@ void intercalar(MergeSort *mergeSort, int ini, int meio, int fim) {
     }
 }
 
-// Função para calcular o tempo de execução do MergeSort
+// FunÃ§Ã£o para calcular o tempo de execuÃ§Ã£o do MergeSort
 long calcularTempoMergeSort(MergeSort *mergeSort) {
     clock_t start = clock();
     mergeSort(mergeSort, 0, mergeSort->tamanho - 1);
     return (long)(clock() - start) * 1000 / CLOCKS_PER_SEC; // Retorna o tempo em milissegundos
 }
 
-// Função para gravar coordenadas em um arquivo
+// FunÃ§Ã£o para gravar coordenadas em um arquivo
 void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho) {
     FILE *file = fopen(nomeArquivo, "w");
     if (file == NULL) {
@@ -672,7 +672,7 @@ void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho
     fclose(file);
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
     srand(time(NULL));
 
@@ -692,12 +692,12 @@ int main() {
 
     MergeSort *mergeSort = criarMergeSort(arrParaOrdenar, quantidade);
     long tempoExec = calcularTempoMergeSort(mergeSort);
-    printf("Tempo de execução do MergeSort: %ld ms\n", tempoExec);
+    printf("Tempo de execuÃ§Ã£o do MergeSort: %ld ms\n", tempoExec);
 
     // Gravar coordenadas ordenadas
     gravarCoordenadas(PATHORDENADO "coordenadas_ordenadas.txt", gerador->coordenadas, quantidade * 2);
 
-    // Liberar memória
+    // Liberar memÃ³ria
     liberarGeradorCoordenada(gerador);
     liberarMergeSort(mergeSort);
     free(arrParaOrdenar);
@@ -722,7 +722,7 @@ typedef struct {
     double *numeros;
 } QuickSort;
 
-// Função para criar um GeradorCoordenada
+// FunÃ§Ã£o para criar um GeradorCoordenada
 GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     GeradorCoordenada *gerador = malloc(sizeof(GeradorCoordenada));
     gerador->quantidade = qtd;
@@ -730,7 +730,7 @@ GeradorCoordenada* criarGeradorCoordenada(int qtd) {
     return gerador;
 }
 
-// Função para gerar coordenadas aleatórias
+// FunÃ§Ã£o para gerar coordenadas aleatÃ³rias
 void gerarCoordenadas(GeradorCoordenada *gerador) {
     for (int i = 0; i < gerador->quantidade * 2; i += 2) {
         gerador->coordenadas[i] = ((double)rand() / RAND_MAX) * 180.0 - 90.0;  // Latitude
@@ -738,25 +738,25 @@ void gerarCoordenadas(GeradorCoordenada *gerador) {
     }
 }
 
-// Função para liberar memória do GeradorCoordenada
+// FunÃ§Ã£o para liberar memÃ³ria do GeradorCoordenada
 void liberarGeradorCoordenada(GeradorCoordenada *gerador) {
     free(gerador->coordenadas);
     free(gerador);
 }
 
-// Função para criar um objeto QuickSort
+// FunÃ§Ã£o para criar um objeto QuickSort
 QuickSort* criarQuickSort(double *arr) {
     QuickSort *quickSort = malloc(sizeof(QuickSort));
     quickSort->numeros = arr;
     return quickSort;
 }
 
-// Função para liberar memória do QuickSort
+// FunÃ§Ã£o para liberar memÃ³ria do QuickSort
 void liberarQuickSort(QuickSort *quickSort) {
     free(quickSort);
 }
 
-// Função para particionar o array
+// FunÃ§Ã£o para particionar o array
 int particionar(double *arr, int esq, int dir) {
     int i = esq;
     int j = dir;
@@ -778,21 +778,21 @@ int particionar(double *arr, int esq, int dir) {
     return i;
 }
 
-// Função para realizar o QuickSort
+// FunÃ§Ã£o para realizar o QuickSort
 void quickSort(double *arr, int esq, int dir) {
     int indice = particionar(arr, esq, dir);
     if (esq < indice - 1) quickSort(arr, esq, indice - 1);
     if (indice < dir) quickSort(arr, indice, dir);
 }
 
-// Função para calcular o tempo de execução do QuickSort
+// FunÃ§Ã£o para calcular o tempo de execuÃ§Ã£o do QuickSort
 long calcularTempoQuickSort(QuickSort *quickSort) {
     clock_t start = clock();
     quickSort(quickSort->numeros, 0, quickSort->numeros[0]);
     return (long)(clock() - start) * 1000 / CLOCKS_PER_SEC; // Retorna o tempo em milissegundos
 }
 
-// Função para gravar coordenadas em um arquivo
+// FunÃ§Ã£o para gravar coordenadas em um arquivo
 void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho) {
     FILE *file = fopen(nomeArquivo, "w");
     if (file == NULL) {
@@ -805,7 +805,7 @@ void gravarCoordenadas(const char *nomeArquivo, double *coordenadas, int tamanho
     fclose(file);
 }
 
-// Função principal
+// FunÃ§Ã£o principal
 int main() {
     srand(time(NULL));
 
@@ -825,12 +825,12 @@ int main() {
 
     QuickSort *quickSort = criarQuickSort(arrParaOrdenar);
     long tempoExec = calcularTempoQuickSort(quickSort);
-    printf("Tempo de execução do QuickSort: %ld ms\n", tempoExec);
+    printf("Tempo de execuÃ§Ã£o do QuickSort: %ld ms\n", tempoExec);
 
     // Gravar coordenadas ordenadas
     gravarCoordenadas(PATHORDENADO "coordenadas_ordenadas.txt", gerador->coordenadas, quantidade * 2);
 
-    // Liberar memória
+    // Liberar memÃ³ria
     liberarGeradorCoordenada(gerador);
     liberarQuickSort(quickSort);
     free(arrParaOrdenar);
